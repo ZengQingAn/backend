@@ -1,0 +1,6 @@
+apollo:
+  bootstrap:
+    enabled: true
+  config-service: http://apollo-config-service.infra.svc.cluster.local
+app:
+  id: backend-archetype

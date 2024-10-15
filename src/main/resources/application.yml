@@ -1,0 +1,57 @@
+server:
+  servlet:
+    context-path: /
+  tomcat:
+    max-http-form-post-size: 5MB
+
+spring:
+  application:
+    name: backend-archetype
+  profiles:
+    active: local
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: NON_NULL
+    serialization:
+      write-dates-as-timestamps: true
+  datasource:
+    url:
+    username:
+    password:
+    connection-init-sqls: 'set names utf8mb4'
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid config
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 1
+      min-idle: 1
+      max-active: 400
+      #获取连接等待超时时间
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 100
+      stat-view-servlet:
+        enabled: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+dubbo:
+  application:
+    name: backend-archetype
+  provider:
+    filter: -exception
+    timeout: 3000
+    retries: 0
+  scan:
+    base-packages: backend.archetype.server.core.service
+  protocol:
+    port: -1

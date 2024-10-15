@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 12345678
+
+core:
+  redis:
+    jedis:
+      host: 127.0.0.1
+      port: 6379
+    redisson:
+      address: redis://127.0.0.1:6379
+
+dubbo:
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+    check: false
+  consumer:
+    check: false
+
+
+
